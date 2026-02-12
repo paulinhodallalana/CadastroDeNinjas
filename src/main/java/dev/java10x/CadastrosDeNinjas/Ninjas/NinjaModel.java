@@ -18,12 +18,26 @@ public class NinjaModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @Column(name = "id")
     private long id;
+
+    @Column(name = "nome") //@collumn nome serve para nomear o nome da nossa coluna
     private String nome;
 
-    @Column(unique = true) // obrigatrio o campo do email
+    @Column(unique = true) // serrve para criar a obrigatroriedade do preenchimento do campo do email
     private String email;
+
+
+    @Column(name = "img_url")
+    private String imgUrl;
+
+    @Column(name = "idade")
     private int idade;
+
+
+
+
     // muitos ninjas para MESMA missa@ManyToOne
     @JoinColumn(name = "missoes_id") //chave estrangeira
     private MissoesModel missoes;
