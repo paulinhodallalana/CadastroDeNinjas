@@ -3,7 +3,8 @@ package dev.java10x.CadastrosDeNinjas.Missoes;
 import dev.java10x.CadastrosDeNinjas.Ninjas.NinjaModel;
 import jakarta.persistence.*;
 
-import java.awt.*;
+import java.util.List;
+
 
 
 @Entity
@@ -18,8 +19,7 @@ public class MissoesModel {
 
     private String dificuldade;
 
-    // uma missao para muitos ninjas
-    @OneToMany(mappedBy = " missoes" )
+    @OneToMany(mappedBy = "missoes")
     private List<NinjaModel> ninjas;
 
 

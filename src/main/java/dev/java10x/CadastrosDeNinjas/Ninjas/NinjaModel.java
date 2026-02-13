@@ -38,8 +38,8 @@ public class NinjaModel {
 
 
 
-    // muitos ninjas para MESMA missa@ManyToOne
-    @JoinColumn(name = "missoes_id") //chave estrangeira
+    @ManyToOne
+    @JoinColumn(name = "missoes_id")
     private MissoesModel missoes;
 }
 
