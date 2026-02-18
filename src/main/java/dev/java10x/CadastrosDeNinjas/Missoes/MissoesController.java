@@ -1,12 +1,17 @@
 package dev.java10x.CadastrosDeNinjas.Missoes;
 
 
+import jakarta.persistence.ManyToOne;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/missoes")
 
 public class MissoesController {
+
+  
 
     //CRUDE - CRIAR, MOSTRAR, INSERIR,DELETAR
     // Get - mandar requisoçao para mostrar as requisisoes
@@ -22,7 +27,7 @@ public class MissoesController {
 
     @GetMapping("/listar")
     public String listarMissoes() {
-        return "Todas as missoes";
+        return "lista de missoes";
     }
 
     @PutMapping("/alterar")
