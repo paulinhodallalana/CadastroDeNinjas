@@ -20,7 +20,7 @@ public class NinjaModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     @Column(name = "id")
-    private long id;
+    private Long id;
 
     @Column(name = "nome") //@collumn nome serve para nomear o nome da nossa coluna
     private String nome;
@@ -33,7 +33,7 @@ public class NinjaModel {
     private String imgUrl;
 
     @Column(name = "idade")
-    private int idade;
+    private Integer idade;
 
 
 

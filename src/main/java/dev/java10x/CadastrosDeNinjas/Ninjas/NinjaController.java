@@ -24,10 +24,10 @@ public class NinjaController {
 
   // CRUDE
 
-   //ADICIONAR NINJA (CREAT)
+   //ADICIONAR NINJA (CREAT) @requestbody
    @PostMapping ("/criar")
-    public  String criarNinja() {
-      return "Ninja criado";
+    public  NinjaModel criarNinja(@RequestBody NinjaModel ninja) {
+      return ninjaService.criarNinja(ninja);
     };
 
 
@@ -37,6 +37,7 @@ public class NinjaController {
         return ninjaService.listarNinjas() ;
     }
 
+    //MOSTRAR POR ID
     @GetMapping("/listar/{id}")
     public NinjaModel listarNinjasPorId(@PathVariable long id) {
         return  ninjaService.listarNinjaId(id);
