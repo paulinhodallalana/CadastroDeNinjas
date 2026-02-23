@@ -39,7 +39,7 @@ public class NinjaController {
 
     //MOSTRAR POR ID
     @GetMapping("/listar/{id}")
-    public NinjaModel listarNinjasPorId(@PathVariable long id) {
+    public NinjaModel listarNinjasPorId(@PathVariable Long id) {
         return  ninjaService.listarNinjaId(id);
 
     }
@@ -50,10 +50,10 @@ public class NinjaController {
         return "Mostrar Ninjas Por Id:";
     }
 
-    //DELETAR NINJA(REMOVE)
-   @DeleteMapping("/deletarID")
-    public String deletarNinjaPorId() {
-        return "Ninja Deletado Por ID";
+    //DELETAR NINJA(REMOVE) Nao esquece q delete é um metodoo void
+   @DeleteMapping("/deletar/{id}")
+    public void deletarNinjaPorId(@PathVariable  Long id) {
+        ninjaService.deletarNinjaPorId(id);
    };
 
 

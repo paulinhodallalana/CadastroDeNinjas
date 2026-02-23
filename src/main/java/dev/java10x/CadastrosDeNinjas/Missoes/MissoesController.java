@@ -19,16 +19,31 @@ public class MissoesController {
     //PUT - MANRA PARA ALTERAR AS MISSOES
     //DELETE - REMOVER AS MISSOES
 
+    //SEMPRE CHAMAR O SERVICE E FAZER O CONTRUTOR
+    private MissoesService missoesService;
 
+    public MissoesController(MissoesService missoesService) {
+        this.missoesService = missoesService;
+    }
+
+    //Criar missoes
     @PostMapping("/criar")
-    public String criarMissao() {
-        return "Missao Criada com suceso";
+    public MissoesModel criarMissao(@RequestBody MissoesModel missao) {
+        return missoesService.criarMissoes(missao);
     }
 
+
+    //LISTAR MISSOES
     @GetMapping("/listar")
-    public String listarMissoes() {
-        return "lista de missoes";
+    public List<MissoesModel> listarMissoes() {
+        return missoesService.listarmissoes() ;
     }
+
+   @GetMapping("/listar/{id}")
+   public MissoesModel missoesModel(@PathVariable Long id) {
+        return missoesService.listarMissoesPorId(id);
+   }
+
 
     @PutMapping("/alterar")
     public String alterarMissao() {
