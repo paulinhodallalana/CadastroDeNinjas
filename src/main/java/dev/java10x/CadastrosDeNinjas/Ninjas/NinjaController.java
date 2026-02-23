@@ -44,10 +44,10 @@ public class NinjaController {
 
     }
 
-    //ALTERAR POR ID(UPDATE)
-    @PutMapping("/todosID")
-    public String alterarNinjasPorId() {
-        return "Mostrar Ninjas Por Id:";
+    //ALTERAR POR ID(UPDATE) PACH
+    @PutMapping("/alterar/{id}")
+    public NinjaModel alterarNinjasPorId(@PathVariable Long id, @RequestBody NinjaModel ninjaAtualizado) {
+        return ninjaService.atualizarNinja(id, ninjaAtualizado);
     }
 
     //DELETAR NINJA(REMOVE) Nao esquece q delete é um metodoo void
