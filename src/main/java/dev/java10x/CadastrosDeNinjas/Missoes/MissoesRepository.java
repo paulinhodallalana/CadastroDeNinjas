@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface MissoesRepositiry extends JpaRepository<MissoesModel, Long> {
+public interface MissoesRepository extends JpaRepository<MissoesModel, Long> {
 }
