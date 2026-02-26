@@ -33,20 +33,20 @@ public class NinjaController {
 
     //MOSTRAR TODOS OS NINJAS (READ)
     @GetMapping("/listar")
-    public List<NinjaModel> listarNinjas() {
+    public List<NinjaDTO> listarNinjas() {
         return ninjaService.listarNinjas() ;
     }
 
     //MOSTRAR POR ID
     @GetMapping("/listar/{id}")
-    public NinjaModel listarNinjasPorId(@PathVariable Long id) {
+    public NinjaDTO listarNinjasPorId(@PathVariable Long id) {
         return  ninjaService.listarNinjaId(id);
 
     }
 
     //ALTERAR POR ID(UPDATE) PACH
     @PutMapping("/alterar/{id}")
-    public NinjaModel alterarNinjasPorId(@PathVariable Long id, @RequestBody NinjaModel ninjaAtualizado) {
+    public NinjaDTO alterarNinjasPorId(@PathVariable Long id, @RequestBody NinjaDTO ninjaAtualizado) {
         return ninjaService.atualizarNinja(id, ninjaAtualizado);
     }
 
