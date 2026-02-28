@@ -35,6 +35,14 @@ public class MissoesService {
         return missoesModel.orElse(null); //
     };
 
+    public boolean deletarMissaoPorId(Long id) {
+        if (missoesRepository.existsById(id)) {
+            missoesRepository.deleteById(id);
+            return true;
+        }
+        return false;
+    }
+
 }
 
 
