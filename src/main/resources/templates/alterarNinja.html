@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Alterar Ninja</title>
+    <style>
+        body {
+            background-color: #1e1e2f; /* cor de fundo */
+            color: #fff;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        input, select, button {
+            display: block;
+            margin: 10px 0;
+            padding: 8px;
+            width: 300px;
+            border-radius: 5px;
+            border: none;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        a {
+            color: #ff9800;
+            text-decoration: none;
+            margin-top: 10px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Alterar Ninja</h2>
+
+<form th:action="@{/ninjas/alterar/{id}(id=${ninja.id})}" method="post">
+    <label>Nome:</label>
+    <input type="text" th:value="${ninja.nome}" name="nome" required>
+
+    <label>Email:</label>
+    <input type="email" th:value="${ninja.email}" name="email" required>
+
+    <label>Idade:</label>
+    <input type="number" th:value="${ninja.idade}" name="idade" required>
+
+    <label>Rank:</label>
+    <input type="text" th:value="${ninja.rank}" name="rank" required>
+
+    <label>URL da Imagem:</label>
+    <input type="text" th:value="${ninja.imgUrl}" name="imgUrl">
+
+    <button type="submit">Salvar Alterações</button>
+</form>
+
+<a th:href="@{/ninjas/listar/UI}">Voltar para Lista</a>
+
+</body>
+</html>

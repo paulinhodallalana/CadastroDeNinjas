@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Adicionar Ninja</title>
+
+    <style>
+        body {
+            font-family: 'Trebuchet MS', sans-serif;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #000000 70%);
+            color: white;
+            padding: 40px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #00ff66;
+            margin-bottom: 30px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: auto;
+            background: rgba(20,20,20,0.95);
+            padding: 25px;
+            border-radius: 15px;
+            border: 2px solid #00ff66;
+            box-shadow: 0 0 20px #00ff66;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: none;
+        }
+
+        select {
+            cursor: pointer;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            background-color: #00ff66;
+            color: #000;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: 0.2s;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #00cc55;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            color: #ff9800;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h2>➕ Adicionar Novo Ninja</h2>
+
+<form th:action="@{/ninjas/adicionar}"
+      method="post"
+      th:object="${ninja}">
+
+    <input type="text" th:field="*{nome}" placeholder="Nome" required>
+
+    <input type="email" th:field="*{email}" placeholder="Email" required>
+
+    <input type="number" th:field="*{idade}" placeholder="Idade" required>
+
+    <input type="text" th:field="*{rank}" placeholder="Rank" required>
+
+    <!-- 🔥 MISSÃO -->
+    <label>Missão:</label>
+    <select th:field="*{missao.id}" required>
+        <option value="">Selecione uma missão</option>
+
+        <option th:each="missao : ${missoes}"
+                th:value="${missao.id}"
+                th:text="${missao.nome}">
+        </option>
+
+    </select>
+
+    <input type="text" th:field="*{imgUrl}" placeholder="URL da Imagem">
+
+    <button type="submit">Salvar Ninja</button>
+
+</form>
+
+<a th:href="@{/ninjas/listar/UI}">🔙 Voltar para Lista</a>
+
+</body>
+</html>
